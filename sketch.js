@@ -22,7 +22,6 @@ function draw() {
 function enemyBasics() {
   hitEnemy();
   drawEnemy();
-  shootEnemyBullet();
   enemyMovements();
   changeStage();
 }

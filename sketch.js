@@ -1,5 +1,5 @@
-var spaceship; var flyenemy; var raybeamenemy; var beeenemy; var alienenemy;
-var ssx = 910/2; var ssy = 665; var bx = 910/2 + 21; var by = 690; var speed = 7.5; //bullet speed
+var spaceship; var flyenemy;
+var ssx = 455; var ssy = 665; var bx = 455 + 21; var by = 690; var speed = 7.5;
 var time = 0; var nlives = 1; var score = 0; var stagen = 1;
 var enemies = []; var enemiesA = [];
 
@@ -7,9 +7,6 @@ function setup() {
   createCanvas(910, 765);
   spaceship = loadImage("spaceship.png")
   flyenemy = loadImage("flyenemy.png")
-  raybeamenemy = loadGif("raybeamenemy.gif")
-  alienenemy = loadImage("alienenemy.png")
-  beeenemy = loadImage("beeenemy.png")
   stages();
 }
 
@@ -40,12 +37,6 @@ function drawEnemy() {
   for (i = 0; i < enemiesA.length; i++) {
     if (time/60 > 5) {
       enemiesA[i].display();
-    }
-  }
-}
-function shootEnemyBullet() {
-  for (i = 0; i < 4; i++) {
-    if (time/100 >= 5*i*3 && time/100 <= 3*5*i+10) {
     }
   }
 }
@@ -137,7 +128,7 @@ function stages() {
   }
 }
 
-// OBJECT CONSTRUCTORS
+// OBJECT CONSTRUCTORS FOR ENEMIES
 function Flyenemy(x, y) {
   this.x = x;
   this.y = y;
@@ -179,13 +170,6 @@ function Flyenemy(x, y) {
     this.y += -5
     this.ebx += -3
     this.eby += -5
-  }
-}
-function Alienenemy(x, y) {
-  this.x = x;
-  this.y = y;
-  this.display = function() {
-    image(alienenemy, this.x, this.y, 30, 30)
   }
 }
 
@@ -325,7 +309,7 @@ function changeStage() {
   }
   if (stagen == 2 && time < 0) {
     time ++
-    console.log(time)
+    score = score;
     textSize(50);
     text("STAGE 2", 360, 200);
   }
